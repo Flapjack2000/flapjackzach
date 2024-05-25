@@ -815,7 +815,7 @@ document.addEventListener('keydown', e => {
 })
 
 keyboard.addEventListener('click', e => {
-  if (letterKeys.includes(e.target) && textbox.textContent.length <= 7) {
+  if (letterKeys.includes(e.target) && textbox.textContent.length < 7) {
     pressKey(e.target);
     textbox.textContent += e.target.textContent.toUpperCase();
   }
