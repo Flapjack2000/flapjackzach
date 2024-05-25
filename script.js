@@ -784,7 +784,7 @@ function displayWord(word) {
   prompt.textContent = word.toUpperCase();
 }
 
-//Keyboard functionality 
+//Keyboard functionality
 textbox.textContent = '';
 document.addEventListener('keydown', e => {
   //check if it's a letter key
@@ -840,7 +840,7 @@ function enter() {
   } 
   else{
     animation(enterKey, 'pressed');
-    animation(textbox, 'letter-limit-reached')
+    animation(textbox, 'letter-limit-reached');
   };
 
 }
