@@ -1,23 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Sup dog</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCRAMBL</title>
+  <link rel="icon" href="#">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header>
-        <h1>Hi Pablo :)</h1>
-    </header>
-    <main>
+  <div id="counter">#correct:</div>
 
-    </main>
+  <h1 id="title">SCRAMBL</h1>
+  <p>Can you unscramble this 7 letter word?</p>
+
+  <div id="prompt"></div><br>
+
+  <div id="textbox"></div><br>
 
 
+  <div id="keyboard">
+    <div class="top-row row">
+      <kbd data-letter data-key="q">q</kbd>
+      <kbd data-letter data-key="w">w</kbd>
+      <kbd data-letter data-key="e">e</kbd>
+      <kbd data-letter data-key="r">r</kbd>
+      <kbd data-letter data-key="t">t</kbd>
+      <kbd data-letter data-key="y">y</kbd>
+      <kbd data-letter data-key="u">u</kbd>
+      <kbd data-letter data-key="i">i</kbd>
+      <kbd data-letter data-key="o">o</kbd>
+      <kbd data-letter data-key="p">p</kbd>
+    </div>
 
-    
+    <div class="middle-row row">
+      <kbd data-letter data-key="a">a</kbd>
+      <kbd data-letter data-key="s">s</kbd>
+      <kbd data-letter data-key="d">d</kbd>
+      <kbd data-letter data-key="f">f</kbd>
+      <kbd data-letter data-key="g">g</kbd>
+      <kbd data-letter data-key="h">h</kbd>
+      <kbd data-letter data-key="j">j</kbd>
+      <kbd data-letter data-key="k">k</kbd>
+      <kbd data-letter data-key="l">l</kbd>
 
-    <script src="script.js"></script>
+    </div>
+
+    <div class="bottom-row row">
+      <kbd data-key="Enter">Enter</kbd>
+      <kbd data-letter data-key="z">z</kbd>
+      <kbd data-letter data-key="x">x</kbd>
+      <kbd data-letter data-key="c">c</kbd>
+      <kbd data-letter data-key="v">v</kbd>
+      <kbd data-letter data-key="b">b</kbd>
+      <kbd data-letter data-key="n">n</kbd>
+      <kbd data-letter data-key="m">m</kbd>
+      <kbd data-key="Backspace">Backspace</kbd>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
 </body>
+
 </html>
