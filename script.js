@@ -784,7 +784,7 @@ function displayWord(word) {
   prompt.textContent = word.toUpperCase();
 }
 
-//Keyboard functionality
+//Keyboard functionality 
 textbox.textContent = '';
 document.addEventListener('keydown', e => {
   //check if it's a letter key
