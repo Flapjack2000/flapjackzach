@@ -724,7 +724,6 @@ const wordList7 = [
   'yodeler',
   'yoghurt',
   'younger',
-  'yttrium',
   'yuckier',
   'yummier',
   'yelling',
@@ -748,6 +747,9 @@ const keyboard = document.getElementById('keyboard');
 const enterKey = document.querySelector(`kbd[data-key='Enter']`);
 const backspaceKey = document.querySelector(`kbd[data-key='Backspace']`);
 const letterKeys = Array.from(document.querySelectorAll(`kbd[data-letter]`));
+
+let count = 0;
+const counter = document.getElementById('counter');
 
 
 let correctWord;
@@ -789,64 +791,69 @@ document.addEventListener('keydown', e => {
   if (e.keyCode >= 65 && e.keyCode <= 90 ||
     e.keyCode >= 97 && e.keyCode <= 122) {
     if (textbox.textContent.length === 7) {
-      textbox.classList.add('letter-limit-reached');
-      textbox.addEventListener('transitionend', () => {
-        textbox.classList.remove('letter-limit-reached');
-      })
+      animation(textbox, 'letter-limit-reached');
     }
     //check if the word is less than 7 letters
     if (textbox.textContent.length < 7) {
       textbox.textContent += e.key.toUpperCase();
       //add styling
       const letterKey = document.querySelector(`kbd[data-key = ${e.key.toLowerCase()}`);
-      pressKey(letterKey);
+      animation(letterKey, 'pressed');
     }
   }
   //backspace
   else if (e.key === 'Backspace') {
-    textbox.textContent = textbox.textContent.slice(0, -1);
-    pressKey(backspaceKey);
+    backspace();
   }
   else if (e.key === 'Enter') {
     enter();
-    pressKey(enterKey);
+
   }
   else return;
 })
 
 keyboard.addEventListener('click', e => {
   if (letterKeys.includes(e.target) && textbox.textContent.length < 7) {
-    pressKey(e.target);
+    animation(e.target, 'pressed');
     textbox.textContent += e.target.textContent.toUpperCase();
   }
   else if (e.target === enterKey) {
     enter();
-    pressKey(enterKey);
   }
   else if (e.target === backspaceKey) {
     backspace();
-    pressKey(backspaceKey);
+  }
+  if (textbox.textContent.length === 7) {
+    animation(textbox, 'letter-limit-reached');
   }
 })
 
-
 function enter() {
   if (textbox.textContent.toLowerCase() === correctWord) {
+    managePointCount();
+    animation(textbox, 'correct');
+    animation(enterKey, 'correct');
+    animation(backspaceKey, 'correct');
     startGame();
-  } else return;
+  } else{animation(enterKey, 'pressed')};
   textbox.textContent = '';
 }
 function backspace() {
   textbox.textContent = textbox.textContent.slice(0, -1);
+  animation(backspaceKey, 'pressed');
 }
 
-function pressKey(key) {
-  key.classList.add('pressed');
-  key.addEventListener('transitionend', () => {
-    key.classList.remove('pressed');
+function animation(element, className) {
+  element.classList.add(`${className}`);
+  element.addEventListener('transitionend', () => {
+    element.classList.remove(`${className}`);
   })
 }
 
+function managePointCount() {
+  count++;
+  counter.textContent = `#correct: ${count}`;
+}
 
 //SCRAMBL title animation
 titleAnimation()
@@ -875,9 +882,6 @@ function titleAnimation() {
     }, 300);
   }, 300);
 }
-
-
-
 
 console.log(correctWord);
 
