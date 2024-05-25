@@ -1,7 +1,22 @@
 :root {
+  color: #323232;
   font-size: 25px;
   --accent-color: hsl(0, 80%, 75%);
   --accent-color2: hsl(0, 80%, 95%);
+}
+
+[data-key='Enter'],
+[data-key='Backspace']{
+  text-decoration: underline var(--accent-color);
+}
+[data-key='Enter'].correct{
+  background-color: hsl(130, 80%, 95%);
+  color: white;
+  outline: 3px solid hsl(130, 80%, 70%);
+  text-decoration: underline hsl(130, 80%, 70%);
+}
+[data-key='Backspace'].correct{
+  text-decoration: underline hsl(130, 80%, 70%);
 }
 
 * {
@@ -39,11 +54,15 @@ p {
   font-size: 2rem;
   letter-spacing: .2rem;
   margin: auto;
-  transition: .7s;
+  transition: .4s;
 }
 
 #textbox.letter-limit-reached {
   background-color: var(--accent-color);
+}
+#textbox.correct {
+  background-color: hsl(130, 80%, 95%);
+  border: hsl(130, 80%, 75%) 1px solid;
 }
 
 #keyboard .row {
@@ -62,7 +81,7 @@ p {
   padding: 12px 22px;
   text-transform: capitalize;
   user-select: none;
-  transition: .07s;
+  transition: .1s;
   cursor: pointer;
 }
 
