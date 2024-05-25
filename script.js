@@ -834,9 +834,15 @@ function enter() {
     animation(textbox, 'correct');
     animation(enterKey, 'correct');
     animation(backspaceKey, 'correct');
+    textbox.textContent = '';
     startGame();
-  } else{animation(enterKey, 'pressed')};
-  textbox.textContent = '';
+  
+  } 
+  else{
+    animation(enterKey, 'pressed');
+    animation(textbox, 'letter-limit-reached')
+  };
+
 }
 function backspace() {
   textbox.textContent = textbox.textContent.slice(0, -1);
