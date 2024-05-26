@@ -888,11 +888,3 @@ function titleAnimation() {
     }, 300);
   }, 300);
 }
-
-console.log(correctWord);
-
-/* MY NOTES
-
-Make an array of the letter keys. Check on event if the target/key is in the array, rather than doing a whole bunch of if statements.
-
-*/
