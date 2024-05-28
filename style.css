@@ -1,106 +1,225 @@
-:root {
-  color: #323232;
-  font-size: 25px;
-  --accent-color: hsl(0, 80%, 75%);
-  --accent-color2: hsl(0, 80%, 95%);
+@media only screen and (max-width: 600px) {
+  :root {
+    color: #323232;
+    font-size: 25px;
+
+    --accent-color: hsl(0, 80%, 75%);
+    --accent-color2: hsl(0, 80%, 95%);
+  }
+
+  * {
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+    height: 100vh;
+    text-align: center;
+  }
+
+  #counter {
+    padding: 4px 10px;
+    text-align: right;
+  }
+
+  #title {
+    margin-top: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+  }
+
+  p {
+    font-size: .8rem;
+    margin-bottom: 1lh;
+  }
+
+  #prompt {
+    letter-spacing: .5rem;
+    margin-bottom: 1lh;
+  }
+
+  #textbox {
+    background-color: var(--accent-color2);
+    border: var(--accent-color) 1px solid;
+    height: 1lh;
+    width: 10rem;
+    text-align: center;
+    font-size: 1rem;
+    letter-spacing: .2rem;
+    margin: auto;
+    margin-bottom: 1lh;
+    transition: .4s;
+  }
+
+
+  #keyboard .row {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  #keyboard .row kbd {
+    font-size: .8rem;
+    text-align: center;
+    text-transform: capitalize;
+    user-select: none;
+    transition: .1s;
+    padding: 10px 10px;
+  }
+
+  #keyboard .top-row kbd,
+  #keyboard .middle-row kbd {
+    border-bottom: 1px solid lightgray;
+  }
+
+  #textbox.letter-limit-reached {
+    background-color: var(--accent-color);
+  }
+
+  #textbox.correct {
+    background-color: hsl(130, 80%, 95%);
+    border: hsl(130, 80%, 75%) 1px solid;
+  }
+
+  #keyboard .row kbd.pressed {
+    background-color: var(--accent-color);
+    color: white;
+    outline: 3px solid var(--accent-color2);
+    text-decoration: initial;
+  }
+
+  [data-key='Enter'],
+  [data-key='Backspace'] {
+    text-decoration: underline var(--accent-color);
+  }
+
+  [data-key='Enter'].correct {
+    background-color: hsl(130, 80%, 95%);
+    color: white;
+    outline: 3px solid hsl(130, 80%, 70%);
+    text-decoration: underline hsl(130, 80%, 70%);
+  }
+
+  [data-key='Backspace'].correct {
+    text-decoration: underline hsl(130, 80%, 70%);
+  }
 }
 
-[data-key='Enter'],
-[data-key='Backspace']{
-  text-decoration: underline var(--accent-color);
-}
-[data-key='Enter'].correct{
-  background-color: hsl(130, 80%, 95%);
-  color: white;
-  outline: 3px solid hsl(130, 80%, 70%);
-  text-decoration: underline hsl(130, 80%, 70%);
-}
-[data-key='Backspace'].correct{
-  text-decoration: underline hsl(130, 80%, 70%);
-}
 
-* {
-  box-sizing: border-box;
-  font-family: 'Courier New', Courier, monospace;
-}
 
-#counter {
-  text-align: right;
-}
 
-#title {
-  text-align: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-style: italic;
-}
 
-p {
-  text-align: center;
-  font-size: 1rem;
-  font-style: italic;
-}
 
-#prompt {
-  text-align: center;
-  letter-spacing: 1rem;
-}
 
-#textbox {
-  background-color: var(--accent-color2);
-  border: var(--accent-color) 1px solid;
-  height: 1lh;
-  width: 15rem;
-  text-align: center;
-  font-size: 2rem;
-  letter-spacing: .2rem;
-  margin: auto;
-  transition: .4s;
-}
 
-#textbox.letter-limit-reached {
-  background-color: var(--accent-color);
-}
-#textbox.correct {
-  background-color: hsl(130, 80%, 95%);
-  border: hsl(130, 80%, 75%) 1px solid;
-}
 
-#keyboard .row {
-  user-select: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-#keyboard .top-row kbd,
-#keyboard .middle-row kbd {
-  border-bottom: 1px solid lightgray;
-}
 
-#keyboard .row kbd {
-  padding: 12px 22px;
-  text-transform: capitalize;
-  user-select: none;
-  transition: .1s;
-  cursor: pointer;
-}
 
-#keyboard .row kbd:hover {
-  background-color: var(--accent-color2);
-}
 
-#keyboard .row kbd.pressed {
-  background-color: var(--accent-color);
-  color: white;
-  outline: 3px solid var(--accent-color2);
-}
 
-@keyframes blink {
-  0% {
+@media (min-width: 601px) {
+  :root {
+    color: #323232;
+    font-size: 25px;
+
+    --accent-color: hsl(0, 80%, 75%);
+    --accent-color2: hsl(0, 80%, 95%);
+  }
+
+  * {
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  [data-key='Enter'],
+  [data-key='Backspace'] {
+    text-decoration: underline var(--accent-color);
+  }
+
+  [data-key='Enter'].correct {
+    background-color: hsl(130, 80%, 95%);
+    color: white;
+    outline: 3px solid hsl(130, 80%, 70%);
+    text-decoration: underline hsl(130, 80%, 70%);
+  }
+
+  [data-key='Backspace'].correct {
+    text-decoration: underline hsl(130, 80%, 70%);
+  }
+
+  #counter {
+    text-align: right;
+  }
+
+  #title {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+  }
+
+  p {
+    text-align: center;
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  #prompt {
+    text-align: center;
+    letter-spacing: 1rem;
+  }
+
+  #textbox {
+    background-color: var(--accent-color2);
+    border: var(--accent-color) 1px solid;
+    height: 1lh;
+    width: 15rem;
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: .2rem;
+    margin: auto;
+    transition: .4s;
+  }
+
+  #textbox.letter-limit-reached {
+    background-color: var(--accent-color);
+  }
+
+  #textbox.correct {
+    background-color: hsl(130, 80%, 95%);
+    border: hsl(130, 80%, 75%) 1px solid;
+  }
+
+  #keyboard .row {
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #keyboard .top-row kbd,
+  #keyboard .middle-row kbd {
+    border-bottom: 1px solid lightgray;
+  }
+
+  #keyboard .row kbd {
+    padding: 12px 22px;
+    text-transform: capitalize;
+    user-select: none;
+    transition: .1s;
+    cursor: pointer;
+  }
+
+  #keyboard .row kbd:hover {
     background-color: var(--accent-color2);
   }
 
-  100% {
-    background-color: white;
+  #keyboard .row kbd.pressed {
+    background-color: var(--accent-color);
+    color: white;
+    outline: 3px solid var(--accent-color2);
   }
 }
