@@ -1,4 +1,4 @@
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   :root {
     color: #323232;
     font-size: 25px;
@@ -19,7 +19,7 @@
     text-align: center;
   }
 
-  #counter {
+  #points {
     padding: 4px 10px;
     text-align: right;
   }
@@ -53,7 +53,6 @@
     margin-bottom: 1lh;
     transition: .4s;
   }
-
 
   #keyboard .row {
     justify-content: center;
@@ -151,7 +150,7 @@
     text-decoration: underline hsl(130, 80%, 70%);
   }
 
-  #counter {
+  #points {
     text-align: right;
   }
 
