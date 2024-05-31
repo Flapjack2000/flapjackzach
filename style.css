@@ -107,10 +107,26 @@
   }
 }
 
+@media only screen and (max-width: 400px) {
+  #keyboard .row kbd {
+    font-size: .65rem;
+    line-height: 1.2rem;
+  }
+}
 
+@media only screen and (max-width: 360px) {
+  #keyboard .row kbd {
+    font-size: .55rem;
+    line-height: 1.4rem;
+  }
+}
 
-
-
+@media only screen and (max-width: 340px) {
+  #keyboard .row kbd {
+    font-size: .5rem;
+    line-height: 1.4rem;
+  }
+}
 
 
 
