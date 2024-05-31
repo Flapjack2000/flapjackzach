@@ -6,6 +6,10 @@
   --accent-color2: hsl(0, 80%, 95%);
 }
 
+p {
+  margin: 1rem;
+}
+
 @media only screen and (max-width: 700px) {
 
 
@@ -13,7 +17,8 @@
     box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
-    line-height: 2rem;
+    line-height: 1.1rem;
+
   }
 
   body {
@@ -110,6 +115,13 @@
   }
 }
 
+@media only screen and (max-width: 460px) {
+  #keyboard .row kbd {
+    font-size: .7rem;
+    line-height: 1.2rem;
+  }
+}
+
 @media only screen and (max-width: 430px) {
   #keyboard .row kbd {
     font-size: .65rem;
@@ -134,14 +146,12 @@
 @media only screen and (max-width: 340px) {
   #keyboard .row kbd {
     font-size: .5rem;
-    line-height: 1.4rem;
   }
 }
 
 @media only screen and (max-width: 330px) {
   #keyboard .row kbd {
     font-size: .45rem;
-    line-height: 1.4rem;
   }
 }
 
