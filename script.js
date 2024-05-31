@@ -1,3 +1,10 @@
+// Notes
+/*
+  Sounds on errors and correct
+  Reshuffle
+  Hints for 3 points
+*/
+
 const wordList7 = [
   'ability',
   'absence',
@@ -748,9 +755,8 @@ const enterKey = document.querySelector(`kbd[data-key='Enter']`);
 const backspaceKey = document.querySelector(`kbd[data-key='Backspace']`);
 const letterKeys = Array.from(document.querySelectorAll(`kbd[data-letter]`));
 
-let count = 0;
-const counter = document.getElementById('counter');
-
+let points = 0;
+const pointCounter = document.getElementById('points');
 
 let correctWord;
 
@@ -807,7 +813,6 @@ document.addEventListener('keydown', e => {
   }
   else if (e.key === 'Enter') {
     enter();
-
   }
   else return;
 })
@@ -836,13 +841,11 @@ function enter() {
     animation(backspaceKey, 'correct');
     textbox.textContent = '';
     startGame();
-  
-  } 
-  else{
+  }
+  else {
     animation(enterKey, 'pressed');
     animation(textbox, 'letter-limit-reached');
   };
-
 }
 function backspace() {
   textbox.textContent = textbox.textContent.slice(0, -1);
@@ -857,8 +860,8 @@ function animation(element, className) {
 }
 
 function managePointCount() {
-  count++;
-  counter.textContent = `#correct: ${count}`;
+  points++;
+  pointCounter.textContent = `#correct: ${points}`;
 }
 
 //SCRAMBL title animation
