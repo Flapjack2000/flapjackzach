@@ -1,16 +1,19 @@
-@media only screen and (max-width: 700px) {
-  :root {
-    color: #323232;
-    font-size: 25px;
+:root {
+  color: #323232;
+  font-size: 25px;
 
-    --accent-color: hsl(0, 80%, 75%);
-    --accent-color2: hsl(0, 80%, 95%);
-  }
+  --accent-color: hsl(0, 80%, 75%);
+  --accent-color2: hsl(0, 80%, 95%);
+}
+
+@media only screen and (max-width: 700px) {
+
 
   * {
     box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
+    line-height: 2rem;
   }
 
   body {
@@ -107,9 +110,16 @@
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 430px) {
   #keyboard .row kbd {
     font-size: .65rem;
+    line-height: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #keyboard .row kbd {
+    font-size: .6rem;
     line-height: 1.2rem;
   }
 }
@@ -128,23 +138,14 @@
   }
 }
 
-
-
-
-
-
-
-
-
-@media (min-width: 601px) {
-  :root {
-    color: #323232;
-    font-size: 25px;
-
-    --accent-color: hsl(0, 80%, 75%);
-    --accent-color2: hsl(0, 80%, 95%);
+@media only screen and (max-width: 330px) {
+  #keyboard .row kbd {
+    font-size: .45rem;
+    line-height: 1.4rem;
   }
+}
 
+@media (min-width: 650px) {
   * {
     box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
