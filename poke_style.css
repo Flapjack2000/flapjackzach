@@ -1,0 +1,29 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#pokemonName,
+#fetchBtn {
+  font-size: 2rem;
+  margin: .5rem;
+}
+
+#fetchBtn {
+  background: hsl(0, 0%, 95%);
+  border: 1px solid;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+p {
+  font-size: 1.5rem;
+  margin: 5px;
+}
+
+#pokemonSprite {
+  height: 500px;
+  border: 8px #bbb solid;
+  border-radius: 10px;
+}
