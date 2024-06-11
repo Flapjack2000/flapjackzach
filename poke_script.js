@@ -41,6 +41,8 @@ async function fetchData() {
     const nameDisplay = document.getElementById('nameDisplay');
     const typeDisplay = document.getElementById('typeDisplay');
 
+
+    document.getElementById('favicon').href = pokemonSprite;
     imgElement.src = pokemonSprite;
     imgElement.style.display = 'block';
     nameDisplay.textContent = data.name.toUpperCase();
@@ -59,3 +61,4 @@ async function fetchData() {
     console.error(`Oops: ${error} `);
   }
 }
+
