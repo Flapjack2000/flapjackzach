@@ -425,7 +425,7 @@ const wordList7 = [
   'marquee',
   'mystery',
   'macabre',
-  'mon0cle',
+  'monocle',
 
   'natural',
   'neither',
