@@ -10,6 +10,7 @@
 body {
   display: grid;
   justify-items: center;
+
 }
 
 .site-title {
@@ -33,6 +34,14 @@ body {
     margin: var(--margin-between-boxes);
   }
 
+  .link-wrapper {
+    text-decoration: initial;
+
+    :hover {
+      background-color: hsl(35, 95%, 75%);
+    }
+  }
+
   .card {
     border: 2px solid;
     padding: 9px;
@@ -51,5 +60,7 @@ body {
       width: 30em;
       margin-left: 30px;
     }
+
   }
+
 }
