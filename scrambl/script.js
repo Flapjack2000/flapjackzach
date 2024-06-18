@@ -817,7 +817,7 @@ keyboard.addEventListener('click', e => {
   else if (e.target === backspaceKey) {
     backspace();
   }
-  if (textbox.textContent.length === 7) {
+  else if (textbox.textContent.length === 7) {
     animation(textbox, 'letter-limit-reached');
   }
 })
