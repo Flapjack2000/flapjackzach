@@ -786,7 +786,7 @@ document.addEventListener('keydown', e => {
   if (e.keyCode >= 65 && e.keyCode <= 90 ||
     e.keyCode >= 97 && e.keyCode <= 122) {
     if (textbox.textContent.length === 7) {
-      animation(textbox, 'letter-limit-reached');
+      animation(textbox, 'error');
     }
     //check if the word is less than 7 letters
     if (textbox.textContent.length < 7) {
@@ -818,7 +818,7 @@ keyboard.addEventListener('click', e => {
     backspace();
   }
   else if (textbox.textContent.length === 7) {
-    animation(textbox, 'letter-limit-reached');
+    animation(textbox, 'error');
   }
 })
 
@@ -833,7 +833,7 @@ function enter() {
   }
   else {
     animation(enterKey, 'pressed');
-    animation(textbox, 'letter-limit-reached');
+    animation(textbox, 'error');
   };
 }
 function backspace() {
