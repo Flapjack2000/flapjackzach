@@ -82,7 +82,7 @@ p {
     border-bottom: 1px solid lightgray;
   }
 
-  #textbox.letter-limit-reached {
+  #textbox.error {
     background-color: var(--accent-color);
   }
 
@@ -210,7 +210,7 @@ p {
     transition: .4s;
   }
 
-  #textbox.letter-limit-reached {
+  #textbox.error {
     background-color: var(--accent-color);
   }
 
