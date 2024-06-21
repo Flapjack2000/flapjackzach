@@ -6,8 +6,18 @@
   --accent-color2: hsl(0, 80%, 95%);
 }
 
+
 p {
   margin: 1rem;
+}
+
+#top-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+#backBtn {
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 700px) {
@@ -22,7 +32,6 @@ p {
   }
 
   body {
-    margin: 0;
     height: 100vh;
     text-align: center;
   }
@@ -177,14 +186,7 @@ p {
     text-decoration: underline hsl(130, 80%, 70%);
   }
 
-  #top-bar {
-    display: flex;
-    justify-content: space-between;
-  }
 
-  #backBtn {
-    cursor: pointer;
-  }
 
   #title {
     text-align: center;
