@@ -5,7 +5,7 @@
   Hints for 3 points
 */
 
-const wordList7 = [
+let wordList7 = [
   'ability',
   'absence',
   'academy',
@@ -68,6 +68,7 @@ const wordList7 = [
   'brought',
   'burning',
   'breaker',
+  'blender',
 
   'cabinet',
   'caliber',
@@ -102,6 +103,7 @@ const wordList7 = [
   'closure',
   'clothes',
   'cobbler',
+  'coconut',
   'collect',
   'college',
   'collage',
@@ -137,6 +139,8 @@ const wordList7 = [
   'counter',
   'country',
   'crucial',
+  'crashed',
+  'creator',
   'crystal',
   'culture',
   'current',
@@ -653,6 +657,7 @@ const wordList7 = [
   'thistle',
   'thought',
   'through',
+  'titanic',
   'tonight',
   'totally',
   'touched',
@@ -675,6 +680,7 @@ const wordList7 = [
   'utility',
 
   'vampire',
+  'varsity',
   'variety',
   'various',
   'vehicle',
