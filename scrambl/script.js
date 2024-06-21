@@ -856,7 +856,7 @@ function animation(element, className) {
 
 function managePointCount() {
   points++;
-  pointCounter.textContent = `#correct: ${points}`;
+  pointCounter.textContent = `#points: ${points}`;
 }
 
 //SCRAMBL title animation
