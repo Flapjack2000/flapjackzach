@@ -177,8 +177,13 @@ p {
     text-decoration: underline hsl(130, 80%, 70%);
   }
 
-  #points {
-    text-align: right;
+  #top-bar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #backBtn {
+    cursor: pointer;
   }
 
   #title {
