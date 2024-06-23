@@ -859,6 +859,10 @@ function managePointCount() {
   pointCounter.textContent = `#points: ${points}`;
 }
 
+function reshuffle() {
+  displayWord(shuffleWord(prompt.textContent));
+}
+
 //SCRAMBL title animation
 titleAnimation()
 function titleAnimation() {
@@ -886,3 +890,4 @@ function titleAnimation() {
     }, 300);
   }, 300);
 }
+
