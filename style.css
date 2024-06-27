@@ -1,6 +1,8 @@
 :root {
   --black: #333333;
+  --blue: #67b5ff;
   --margin-between-boxes: 3px;
+  --border-size: 2px;
 }
 
 * {
@@ -10,57 +12,51 @@
 body {
   display: grid;
   justify-items: center;
-
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.site-title {
+.page-title {
   font: 3.2em 'Franklin Gothic Medium', 'Arial Narrow', sans-serif;
   text-align: center;
+  margin-bottom: 0;
 }
 
-.site-subtitle {
+.page-subtitle {
   text-align: center;
   font-size: 1.3em;
 }
 
+
 .section {
-  border: 2px solid;
-  width: fit-content;
-  margin: var(--margin-between-boxes);
+  border: var(--border-size) solid;
   padding: 3px;
+  margin: var(--margin-between-boxes);
 
   .section-heading {
     font: 2em 'Franklin Gothic Medium', 'Arial Narrow', sans-serif;
     margin: var(--margin-between-boxes);
   }
 
-  .link-wrapper {
-    text-decoration: initial;
-
-    :hover {
-      background-color: hsl(35, 95%, 75%);
-    }
-  }
-
   .card {
-    border: 2px solid;
+    border: var(--border-size) solid;
     padding: 9px;
     margin: var(--margin-between-boxes);
-    max-width: 600px;
+
 
     .title {
       font: italic 1.8em 'Franklin Gothic Medium', 'Arial Narrow', sans-serif;
       margin: var(--margin-between-boxes);
+      cursor: pointer;
     }
 
     .text {
       font-family: 'Courier New', Courier, monospace;
       font-size: 1.2em;
       margin: var(--margin-between-boxes);
-      width: 30em;
+
       margin-left: 30px;
     }
-
   }
-
 }
