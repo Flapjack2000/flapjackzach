@@ -1,0 +1,75 @@
+:root {
+  --red: hsl(10, 95%, 75%);
+  font-size: 20px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#site-title {
+  text-align: center;
+}
+
+#palette {
+  display: flex;
+  min-height: 80vh;
+  width: 100vw;
+
+  .swatch {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+    transition: background .7s;
+
+    .hex-code-display {
+      text-transform: uppercase;
+      backdrop-filter: brightness(.9);
+      line-height: 2rem;
+      cursor: pointer;
+      color: white;
+      border-radius: 5px;
+      padding: .5rem 1rem;
+    }
+
+    .change-color-btn {
+      background: none;
+      border: none;
+      backdrop-filter: brightness(.9);
+      line-height: 2rem;
+      color: white;
+      border-radius: 5px;
+      padding: .5rem 1rem;
+      cursor: pointer;
+    }
+
+    .color-picker {
+      visibility: hidden;
+      cursor: pointer;
+    }
+
+    .faux-color-picker {
+      height: 2rem;
+      width: 2rem;
+      border: 10px double white;
+      border-radius: 50%;
+      cursor: pointer;
+      backdrop-filter: brightness(.9);
+    }
+
+    .hex-code-display:hover,
+    .change-color-btn:hover,
+    .faux-color-picker:hover {
+      backdrop-filter: brightness(.8);
+    }
+
+    .hex-code-display:active,
+    .change-color-btn:active,
+    .faux-color-picker:active {
+      backdrop-filter: brightness(.75);
+    }
+  }
+}
