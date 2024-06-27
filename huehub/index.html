@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HueHub | Color Palette Generator | flapjackzach</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h1 id="site-title">
+    HueHub
+  </h1>
+  <button onclick="removeSwatch()">-</button>
+  <button onclick="addSwatch()">+</button>
+
+
+  <!-- fjkdslfjds;l -->
+  <div id="palette">
+
+    <div class="swatch">
+      <span class="hex-code-display"
+        onclick="
+        navigator.clipboard.writeText(this.textContent.toUpperCase()); window.alert(`Copied hexcode: ${this.textContent.toUpperCase()}`)"></span>
+      <button name="change-color-btn" class="change-color-btn"
+        onclick="setColor(this.parentElement, generateHexCode())">
+        Generate a new color
+      </button>
+      <label class="faux-color-picker">
+        <input class="color-picker" oninput="setColor(this.parentElement.parentElement, this.value)" type="color">
+      </label>
+    </div>
+
+
+
+
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
