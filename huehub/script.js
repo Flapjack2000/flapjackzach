@@ -1,6 +1,5 @@
 const palette = document.getElementById('palette');
 
-
 document.addEventListener('DOMContentLoaded', randomizeAllColors());
 
 function addSwatch() {
