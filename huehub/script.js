@@ -5,6 +5,7 @@ let isTransparencyToggled = false;
 let hexCodeLength = 6;
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('.lock-btn').checked = false;
   randomizeAllColors();
 });
 
@@ -18,26 +19,32 @@ function generateHexCode() {
 }
 
 function setColor(swatch, color) {
-  swatch.style.backgroundColor = color;
-  swatch.querySelector('.color-picker').value = color;
-  swatch.querySelector('.hex-code-display').textContent = color;
-  updateTitleGradient();
+  if (!swatch.querySelector('.lock-btn').checked) {
+    swatch.style.backgroundColor = color;
+    swatch.querySelector('.color-picker').value = color;
+    swatch.querySelector('.hex-code-display').textContent = color;
+    updateTitleGradient();
+  }
 }
 
 function addSwatch() {
   if (palette.childElementCount < swatchCountLimit) {
     const swatch = document.querySelector('.swatch').cloneNode(true);
+    swatch.querySelector('.lock-btn').checked = false;
     setColor(swatch, generateHexCode());
+
     palette.appendChild(swatch);
   }
   updateTitleGradient();
 }
+
 function removeSwatch() {
   if (palette.childElementCount > 1) {
     palette.lastChild.remove();
   }
   updateTitleGradient();
 }
+
 document.addEventListener('keydown', e => {
   if (e.code == 'Space') {
     randomizeAllColors();
