@@ -28,10 +28,12 @@
 
   <div id="palette">
     <div class="swatch">
-      <label class="lock-btn-label">
-        Lock:
-        <input class="lock-btn" type="checkbox">
-      </label>
+      <span class="lock-btn-wrapper">
+        <label class="lock-btn-label">
+          Lock:
+          <input class="lock-btn" type="checkbox">
+        </label>
+      </span>
       <span class="hex-code-display"
         onclick="
         navigator.clipboard.writeText(this.textContent.toUpperCase()); window.alert(`Copied hex code: ${this.textContent.toUpperCase()}`)"></span>
