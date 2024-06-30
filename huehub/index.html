@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HueHub | Color Palette Generator | flapjackzach</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="#">
 </head>
 
 <body>
@@ -14,30 +15,27 @@
     The Hue-Hub
   </h1>
   <div class="top-buttons">
-    <button onclick="removeSwatch()">Remove swatch</button>
-    <button onclick="addSwatch()">Add swatch</button>
+    <button onclick="blur();randomizeAllColors()">Randomize all</button>
+    <button onclick="blur();removeSwatch()">Remove swatch</button>
+    <button onclick="blur();addSwatch()">Add swatch</button>
+    <button onclick="blur();toggleTransparency()">Toggle transparency</button>
+    <button onclick="hint()" id="hint">?</button>
   </div>
 
   <div id="palette">
-
     <div class="swatch">
       <span class="hex-code-display"
         onclick="
-        navigator.clipboard.writeText(this.textContent.toUpperCase()); window.alert(`Copied hexcode: ${this.textContent.toUpperCase()}`)"></span>
+        navigator.clipboard.writeText(this.textContent.toUpperCase()); window.alert(`Copied hex code: ${this.textContent.toUpperCase()}`)"></span>
       <button name="change-color-btn" class="change-color-btn"
         onclick="setColor(this.parentElement, generateHexCode())">
         Generate a new color
       </button>
-      <label class="faux-color-picker">
+      <label onclick="" class="faux-color-picker">
         <input class="color-picker" oninput="setColor(this.parentElement.parentElement, this.value)" type="color">
       </label>
     </div>
-
-
-
-
   </div>
-
 
   <script src="script.js"></script>
 </body>
