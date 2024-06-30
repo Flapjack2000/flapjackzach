@@ -4,13 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
   <title>HueHub | Color Palette Generator | flapjackzach</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="#">
 </head>
 
 <body>
-
+  <div>
+    <a href="../" id="back-btn">
+      <-back to homepage </a>
+  </div>
   <h1 id="site-title">
     The Hue-Hub
   </h1>
@@ -19,11 +23,15 @@
     <button onclick="blur();removeSwatch()">Remove swatch</button>
     <button onclick="blur();addSwatch()">Add swatch</button>
     <button onclick="blur();toggleTransparency()">Toggle transparency</button>
-    <button onclick="hint()" id="hint">?</button>
+    <button onclick="blur();hint()">?</button>
   </div>
 
   <div id="palette">
     <div class="swatch">
+      <label class="lock-btn-label">
+        Lock:
+        <input class="lock-btn" type="checkbox">
+      </label>
       <span class="hex-code-display"
         onclick="
         navigator.clipboard.writeText(this.textContent.toUpperCase()); window.alert(`Copied hex code: ${this.textContent.toUpperCase()}`)"></span>
