@@ -751,7 +751,7 @@ const backspaceKey = document.querySelector(`kbd[data-key='Backspace']`);
 const letterKeys = Array.from(document.querySelectorAll(`kbd[data-letter]`));
 
 let points = 0;
-const pointCounter = document.getElementById('points');
+const pointCounter = document.getElementById('pointCounter');
 
 let correctWord;
 
@@ -856,7 +856,7 @@ function animation(element, className) {
 
 function managePointCount() {
   points++;
-  pointCounter.textContent = `#points: ${points}`;
+  pointCounter.textContent = `# of points: ${points}`;
 }
 
 function reshuffle() {
@@ -890,4 +890,3 @@ function titleAnimation() {
     }, 300);
   }, 300);
 }
-
