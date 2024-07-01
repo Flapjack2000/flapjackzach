@@ -81,7 +81,7 @@ function toggleTransparency() {
 function hint() {
   window.alert(
     `Hi! Welcome to THE HUE-HUB!!!
-    - Click the hex codes to copy them to the clipboard
-    - Click the double circle to activate the color picker
-    - Press SPACE to randomize all the colors`);
+    - Press SPACE to randomize all the colors.
+    - Click the hex codes to copy them to the clipboard.
+    - Click the double circle to activate the color picker.(Unfortunately, the color pickers are not working in Safari or Chrome - but don't worry! I am working on a solution.)`);
 }
