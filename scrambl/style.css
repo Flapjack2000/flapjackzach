@@ -6,6 +6,9 @@
   --accent-color2: hsl(0, 80%, 95%);
 }
 
+body {
+  text-align: center;
+}
 
 p {
   margin: 1rem;
@@ -43,7 +46,7 @@ p {
 
   body {
     height: 100vh;
-    text-align: center;
+
   }
 
   #points {
