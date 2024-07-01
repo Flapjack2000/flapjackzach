@@ -11,10 +11,12 @@
 
 <body>
   <div id="top-bar">
-    <div id="backBtn">
-      <a href="../">back to homepage </a>
-    </div>
-    <div id="points">#points: 0</div>
+
+    <a id="backBtn" href="../">
+      back to homepage
+    </a>
+
+    <span id="pointCounter"># of points: 0</span>
   </div>
 
 
@@ -25,7 +27,7 @@
 
   <div id="textbox"></div><br>
 
-  <button onclick="reshuffle()">↻</button>
+  <button id="reshuffleBtn" onclick="reshuffle()">↻</button>
 
   <div id="keyboard">
     <div class="top-row row">
@@ -51,7 +53,6 @@
       <kbd data-letter data-key="j">j</kbd>
       <kbd data-letter data-key="k">k</kbd>
       <kbd data-letter data-key="l">l</kbd>
-
     </div>
 
     <div class="bottom-row row">
@@ -66,7 +67,6 @@
       <kbd data-key="Backspace">Backspace</kbd>
     </div>
   </div>
-
 
   <script src="script.js"></script>
 </body>
