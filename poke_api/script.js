@@ -70,8 +70,12 @@ async function allPokemonDropdown() {
 
   data.results.forEach(pokemonObject => {
     const dropdownOption = document.createElement(`option`);
-    dropdownOption.value = pokemonObject.name;
+    dropdownOption.value = capitalizeFirstLetter(pokemonObject.name);
     document.getElementById('allPokemon').appendChild(dropdownOption);
   });
 }
 allPokemonDropdown();
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
