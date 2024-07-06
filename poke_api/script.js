@@ -62,3 +62,16 @@ async function fetchData() {
   }
 }
 
+async function allPokemonDropdown() {
+  const url = `https://pokeapi.co/api/v2/pokemon?offset=0&limit=2000`;
+  const response = await fetch(url);
+  const data = await response.json();
+  console.log(data.results);
+
+  data.results.forEach(pokemonObject => {
+    const dropdownOption = document.createElement(`option`);
+    dropdownOption.value = pokemonObject.name;
+    document.getElementById('allPokemon').appendChild(dropdownOption);
+  });
+}
+allPokemonDropdown();
