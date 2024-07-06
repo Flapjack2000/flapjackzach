@@ -10,7 +10,8 @@
 </head>
 
 <body>
-  <input id="pokemonName" type="text" placeholder="Enter Pokemon name">
+  <input id="pokemonName" type="text" placeholder="Enter Pokemon name" list="allPokemon">
+  <datalist id="allPokemon"></datalist>
   <button type="submit" id="fetchBtn" onclick="fetchData()">Fetch Pokemon</button><br>
   <p id="nameDisplay"></p>
   <p id="typeDisplay"></p>
