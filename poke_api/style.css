@@ -7,7 +7,8 @@ body {
 #pokemonName,
 #fetchBtn {
   font-size: 2rem;
-  margin: .5rem;
+  margin: 1rem;
+  padding:.5rem;
 }
 
 #fetchBtn {
