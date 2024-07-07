@@ -3,7 +3,9 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
+#pokemonName{
+  width: 4rem:
+}
 #pokemonName,
 #fetchBtn {
   font-size: 2rem;
