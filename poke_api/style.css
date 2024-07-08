@@ -4,7 +4,7 @@ body {
   align-items: center;
 }
 #pokemonName{
-  width: 10rem;
+  width: 14rem;
 }
 #pokemonName,
 #fetchBtn {
