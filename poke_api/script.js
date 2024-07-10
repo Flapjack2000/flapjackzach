@@ -1,3 +1,16 @@
+const inputField = document.getElementById('inputField');
+const spriteDisplay = document.getElementById('spriteDisplay');
+const nameDisplay = document.getElementById('nameDisplay');
+const typeDisplay = document.getElementById('typeDisplay');
+const hpDisplay = document.getElementById('hpDisplay');
+const attackDisplay = document.getElementById('attackDisplay');
+const defenseDisplay = document.getElementById('defenseDisplay');
+const specialAttackDisplay = document.getElementById('specialAttackDisplay');
+const specialDefenseDisplay = document.getElementById('specialDefenseDisplay');
+const speedDisplay = document.getElementById('speedDisplay');
+const baseExperienceDisplay = document.getElementById('baseExperienceDisplay');
+const abilityDisplay = document.getElementById('abilityDisplay');
+
 const TypeColors = {
   grass: 'hsl(105, 50%, 45%)',
   fire: 'hsl(0, 55%, 50%)',
@@ -19,63 +32,112 @@ const TypeColors = {
   normal: 'hsl(0, 0%, 65%)'
 };
 
+async function getPokemonData(pokemon) {
+  try {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+    return await response.json();
+  }
+  catch {
+    console.error('Could not find this pokemon');
+  }
+}
+function fetchPokemon(pokemon) {
+  getPokemonData(pokemon)
+    .then(data => {
+      if (!data) {
+        clearDisplayedData();
+        return;
+      };
 
-document.addEventListener('keyup', e => {
-  if (e.key == 'Enter') {
-    fetchData();
+      console.log(data);
+
+      // display sprite image
+      spriteDisplay.src = data.sprites.front_default;
+
+      // display name
+      nameDisplay.textContent = `Name: ${capitalizeFirstLetter(data.name)}`;
+
+      // display types
+      let typeList = `Type(s): `;
+      data.types.forEach(typeObj => {
+        typeList += capitalizeFirstLetter(typeObj.type.name) + ', ';
+        typeDisplay.textContent = typeList.slice(0, -2); //cut off last comma and space
+      });
+
+      // display HP
+      hpDisplay.textContent = `HP: ${data.stats[0].base_stat}`;
+      // display attack
+      attackDisplay.textContent = `Attack: ${data.stats[1].base_stat}`;
+
+      // display defense
+      defenseDisplay.textContent = `Defense: ${data.stats[2].base_stat}`;
+
+      // display special attack
+      specialAttackDisplay.textContent = `Special Attack: ${data.stats[3].base_stat}`;
+
+      // display special defense
+      specialDefenseDisplay.textContent = `Special Defense: ${data.stats[4].base_stat}`;
+
+      // display speed
+      speedDisplay.textContent = `Speed: ${data.stats[5].base_stat}`;
+
+      // display base XP
+      baseExperienceDisplay.textContent = `Base Experience: ${data.base_experience}`;
+
+      // display abilities
+      let abilityList = `Abilities: `
+      data.abilities.forEach(abilityObj => {
+        abilityList += capitalizeFirstLetter(abilityObj.ability.name) + ', ';
+        abilityDisplay.textContent = abilityList.slice(0, -2); // cut off last comma and space
+      });
+    })
+}
+
+document.addEventListener('keydown', e => {
+  if (e.code === 'Enter') {
+    fetchPokemon(inputField.value.toLowerCase());
   }
 })
 
-async function fetchData() {
-  try {
-    const pokemonName = document.getElementById('pokemonName').value.toLowerCase();
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
-
-    if (!response.ok) {
-      console.error('Could not find pokemon');
-    }
-
-    const data = await response.json();
-    const pokemonSprite = data.sprites.front_default;
-    const imgElement = document.getElementById('pokemonSprite');
-    const nameDisplay = document.getElementById('nameDisplay');
-    const typeDisplay = document.getElementById('typeDisplay');
-
-
-    document.getElementById('favicon').href = pokemonSprite;
-    imgElement.src = pokemonSprite;
-    imgElement.style.display = 'block';
-    nameDisplay.textContent = data.name.toUpperCase();
-    typeDisplay.textContent = `${data.types[0].type.name.toUpperCase()}`;
-
-    //SET BACKGROUND COLOR TO MATCH TYPE(S)
-    if (data.types.length > 1) {
-      typeDisplay.textContent += `, ${data.types[1].type.name.toUpperCase()}`;
-      imgElement.style.background = `linear-gradient(45deg, ${TypeColors[`${data.types[0].type.name}`]} 0 50%, ${TypeColors[`${data.types[1].type.name}`]} 50% 100%)`;
-    }
-    else {
-      imgElement.style.background = `${TypeColors[`${data.types[0].type.name}`]}`;
-    }
-  }
-  catch (error) {
-    console.error(`Oops: ${error} `);
-  }
+function clearInputField() {
+  inputField.value = '';
 }
 
-async function allPokemonDropdown() {
-  const url = `https://pokeapi.co/api/v2/pokemon?offset=0&limit=2000`;
-  const response = await fetch(url);
-  const data = await response.json();
-  console.log(data.results);
-
-  data.results.forEach(pokemonObject => {
-    const dropdownOption = document.createElement(`option`);
-    dropdownOption.value = capitalizeFirstLetter(pokemonObject.name);
-    document.getElementById('allPokemon').appendChild(dropdownOption);
-  });
+function clearDisplayedData() {
+  spriteDisplay.src = ' ';
+  nameDisplay.textContent = 'Name: ';
+  typeDisplay.textContent = 'Type(s): ';
+  attackDisplay.textContent = 'Attack: ';
+  defenseDisplay.textContent = 'Defense: ';
+  specialAttackDisplay.textContent = 'Special Attack: ';
+  specialDefenseDisplay.textContent = 'Special Defense: ';
+  speedDisplay.textContent = 'Speed: ';
+  baseExperienceDisplay.textContent = 'Base Experience: ';
+  abilityDisplay.textContent = 'Abilities: ';
 }
-allPokemonDropdown();
 
 function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  if (string.includes('-')) {
+    return string.split('-').map(word => word = word.charAt(0).toUpperCase() + word.slice(1)).join('-');
+  }
+  else {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 }
+
+
+//pokeapi cheat sheet
+
+// STATS:
+// data.stats[0].base_stat === hp
+// data.stats[1].base_stat === attack
+// data.stats[2].base_stat === defense
+// data.stats[3].base_stat === special-attack
+// data.stats[4].base_stat === special-defense
+// data.stats[5].base_stat === speed
+
+// TYPES:
+// data.types[?].type.name === grass/psychic/flying/etc
+
+
+
