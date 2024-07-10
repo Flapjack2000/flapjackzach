@@ -4,18 +4,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
   <link rel="stylesheet" href="style.css">
-  <link id="favicon" rel="icon" href="">
-  <title>Fetch 'em all! | PokéAPI</title>
+  <link rel="icon" href="#">
 </head>
 
 <body>
-  <input id="pokemonName" type="text" placeholder="Enter Pokemon name" list="allPokemon">
+  <input id="inputField" list="allPokemon" type="text">
   <datalist id="allPokemon"></datalist>
-  <button type="submit" id="fetchBtn" onclick="fetchData()">Fetch Pokemon</button><br>
-  <p id="nameDisplay"></p>
-  <p id="typeDisplay"></p>
-  <img id="pokemonSprite" src="" alt="" style="display: none;">
+  <button onclick="fetchPokemon(inputField.value.toLowerCase())">Fetch Pokemon</button>
+
+  <div id="displays">
+    <img id="spriteDisplay" alt="">
+    <p id="nameDisplay" class="textDisplay">
+      Name:
+    </p>
+    <p id="typeDisplay" class="textDisplay">
+      Type(s):
+    </p>
+    <p id="hpDisplay" class="textDisplay">
+      HP:
+    </p>
+
+    <p id="attackDisplay" class="textDisplay">
+      Attack:
+    </p>
+    <p id="defenseDisplay" class="textDisplay">
+      Defense:
+    </p>
+    <p id="specialAttackDisplay" class="textDisplay">
+      Special Attack:
+    </p>
+    <p id="specialDefenseDisplay" class="textDisplay">
+      Special Defense:
+    </p>
+    <p id="speedDisplay" class="textDisplay">
+      Speed:
+    </p>
+    <p id="baseExperienceDisplay" class="textDisplay">
+      Base Experience:
+    </p>
+    <p id="abilityDisplay" class="textDisplay">
+      Abilities:
+    </p>
+
+  </div>
   <script src="script.js"></script>
 </body>
 
