@@ -10,42 +10,51 @@
 </head>
 
 <body>
-  <input id="inputField" list="allPokemon" type="text">
-  <datalist id="allPokemon"></datalist>
+  <h1 id="siteTitle">Gotta Fetch 'Em All!</h1>
+
+  <input id="inputField" list="pokemonDropdown" type="text" placeholder="Enter a Pokémon's name">
+  <datalist id="pokemonDropdown"></datalist>
   <button onclick="fetchPokemon(inputField.value.toLowerCase())">Fetch Pokemon</button>
 
   <div id="displays">
     <img id="spriteDisplay" alt="">
-    <p id="nameDisplay" class="textDisplay">
+
+    <p id="nameDisplay" class="dataDisplay">
       Name:
     </p>
-    <p id="typeDisplay" class="textDisplay">
-      Type(s):
+    <p id="typeDisplay" class="dataDisplay">
+      Type:
     </p>
-    <p id="hpDisplay" class="textDisplay">
+    <p id="hpDisplay" class="dataDisplay">
       HP:
     </p>
 
-    <p id="attackDisplay" class="textDisplay">
+    <p id="attackDisplay" class="dataDisplay">
       Attack:
     </p>
-    <p id="defenseDisplay" class="textDisplay">
+    <p id="defenseDisplay" class="dataDisplay">
       Defense:
     </p>
-    <p id="specialAttackDisplay" class="textDisplay">
+    <p id="specialAttackDisplay" class="dataDisplay">
       Special Attack:
     </p>
-    <p id="specialDefenseDisplay" class="textDisplay">
+    <p id="specialDefenseDisplay" class="dataDisplay">
       Special Defense:
     </p>
-    <p id="speedDisplay" class="textDisplay">
+    <p id="speedDisplay" class="dataDisplay">
       Speed:
     </p>
-    <p id="baseExperienceDisplay" class="textDisplay">
+    <p id="baseExperienceDisplay" class="dataDisplay">
       Base Experience:
     </p>
-    <p id="abilityDisplay" class="textDisplay">
+    <p id="abilityDisplay" class="dataDisplay">
       Abilities:
+    </p>
+    <p id="evolvedFromDisplay" class="dataDisplay">
+      Evolved From:
+    </p>
+    <p id="evolvesToDisplay" class="dataDisplay">
+      Evolves To:
     </p>
 
   </div>
