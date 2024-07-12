@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const pokemon = params.get('pokemon');
     fetchPokemon(pokemon);
   }
+  else {
+    fetchPokemon('pikachu');
+  }
 })
 
 const inputField = document.getElementById('inputField');
@@ -29,12 +32,11 @@ const abilityDisplay = document.getElementById('abilityDisplay');
 const evolvedFromDisplay = document.getElementById('evolvedFromDisplay');
 const evolvesToDisplay = document.getElementById('evolvesToDisplay');
 
-let currentPokemon;
+
 
 document.addEventListener('keydown', e => {
   if (e.code === 'Enter') {
-    currentPokemon = inputField.value.toLowerCase();
-    fetchPokemon(currentPokemon);
+    fetchPokemon(inputField.value.toLowerCase());
   }
 })
 
