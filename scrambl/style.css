@@ -1,11 +1,13 @@
 :root {
-  color: #323232;
+  --black: #323232;
   font-size: 25px;
 
   --accent-color: hsl(0, 80%, 75%);
   --accent-color2: hsl(0, 80%, 95%);
 }
-
+*{
+  color: var(--black);
+}
 body {
   text-align: center;
 }
