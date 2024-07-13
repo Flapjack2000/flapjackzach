@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function setURL(pokemon) {
-  const url = new URL(window.location.origin += `?pokemon=${pokemon}`);
+  const url = new URL(window.location.href.split('?')[0] += `?pokemon=${pokemon}`);
   window.location.href = url;
 }
 
