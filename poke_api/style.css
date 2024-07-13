@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+#siteTitle {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+}
+
+button {
+  cursor: pointer;
+}
+
 #inputField {
   text-align: left;
 }
@@ -17,4 +26,10 @@
   height: 300px;
   width: 300px;
   border: 3px solid grey;
+}
+
+@media (min-width: 500px) {
+  .dataDisplay {
+    text-align: center;
+  }
 }
