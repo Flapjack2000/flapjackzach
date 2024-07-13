@@ -12,12 +12,14 @@
 <body>
   <h1 id="siteTitle">Gotta Fetch 'Em All!</h1>
 
-  <input id="inputField" list="pokemonDropdown" type="text" placeholder="Enter a Pokémon's name">
-  <datalist id="pokemonDropdown"></datalist>
-  <button onclick="fetchPokemon(inputField.value.toLowerCase())">Fetch Pokemon</button>
+  <input id="inputField" list="dropdown" type="text" placeholder="Enter a Pokémon's name">
+  <datalist id="dropdown"></datalist>
+  <button onclick="setURL(inputField.value.toLowerCase());">Fetch Pokémon</button>
 
   <div id="displays">
-    <img id="spriteDisplay" alt="">
+    <img id="spriteDisplay"><br>
+
+    <button onclick="getLink()">Get Link</button>
 
     <p id="nameDisplay" class="dataDisplay">
       Name:
@@ -28,7 +30,6 @@
     <p id="hpDisplay" class="dataDisplay">
       HP:
     </p>
-
     <p id="attackDisplay" class="dataDisplay">
       Attack:
     </p>
@@ -52,6 +53,7 @@
     </p>
 
     <h3>↓COMING SOON↓</h3>
+
     <p id="evolvedFromDisplay" class="dataDisplay">
       Evolved From:
     </p>
