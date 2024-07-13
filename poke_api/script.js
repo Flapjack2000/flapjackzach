@@ -2,21 +2,7 @@
 // background colors on the pokemon's sprite that indicate their type
 // dropdown menu that lists all pokemon
 // display evolutions 
-const log = console.log;
-
-// check for query in url
-document.addEventListener('DOMContentLoaded', () => {
-  const url = window.location.href.split('?')[1];
-  const params = new URLSearchParams(url);
-  if (params.has('pokemon')) {
-    const pokemon = params.get('pokemon');
-    fetchPokemon(pokemon);
-  }
-  else {
-    fetchPokemon('pikachu');
-  }
-})
-
+const dropdown = document.getElementById('dropdown');
 const inputField = document.getElementById('inputField');
 const spriteDisplay = document.getElementById('spriteDisplay');
 const nameDisplay = document.getElementById('nameDisplay');
@@ -32,14 +18,47 @@ const abilityDisplay = document.getElementById('abilityDisplay');
 const evolvedFromDisplay = document.getElementById('evolvedFromDisplay');
 const evolvesToDisplay = document.getElementById('evolvesToDisplay');
 
+// check for query in url
+document.addEventListener('DOMContentLoaded', () => {
+  const url = window.location.href.split('?')[1];
+  const params = new URLSearchParams(url);
+  if (params.has('pokemon')) {
+    const pokemon = params.get('pokemon').toLowerCase();
+    fetchPokemon(pokemon);
+  }
+  else {
+    setURL(randomPikachu())
+  }
+  createDropdown();
 
+})
+
+function setURL(pokemon) {
+  const url = new URL(window.location.origin += `?pokemon=${pokemon}`);
+  window.location.href = url;
+}
 
 document.addEventListener('keydown', e => {
   if (e.code === 'Enter') {
-    fetchPokemon(inputField.value.toLowerCase());
+    setURL(inputField.value.toLowerCase());
   }
 })
 
+async function getAllPokemon() {
+  const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=10000');
+  return await response.json();
+}
+
+function createDropdown() {
+  getAllPokemon()
+    .then(data => {
+      data.results.forEach(pokemon => {
+        const option = document.createElement('option');
+        option.value = capitalizeFirstLetter(pokemon.name);
+        dropdown.appendChild(option);
+      });
+    })
+}
 async function getPokemonData(pokemon) {
   try {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
@@ -55,55 +74,58 @@ function fetchPokemon(pokemon) {
     .then(data => {
       if (!data) {
         clearDisplayedData();
-        return;
       }
+      else {
 
-      // display sprite image and set background colors to match types
-      spriteDisplay.src = data.sprites.front_default;
-      setTypeColors(data);
+        // display sprite image and set background colors to match types
+        setSpriteDisplay(data.sprites.front_default,)
 
-      // display name
-      nameDisplay.textContent = `Name: ${capitalizeFirstLetter(data.name)}`;
+        // set sprite background colors
+        setTypeColors(data);
 
-      // display types
-      let typeList = `Type: `;
-      data.types.forEach(typeObj => {
-        typeList += capitalizeFirstLetter(typeObj.type.name) + ', ';
-        typeDisplay.textContent = typeList.slice(0, -2); //cut off last comma and space
-      });
+        // display name, set image alt and title
+        setNameDisplay(capitalizeFirstLetter(data.name));
 
-      // display HP
-      hpDisplay.textContent = `HP: ${data.stats[0].base_stat}`;
-      // display attack
-      attackDisplay.textContent = `Attack: ${data.stats[1].base_stat}`;
+        // display types
+        let typeList = '';
+        data.types.forEach(typeObj => {
+          typeList += capitalizeFirstLetter(typeObj.type.name) + ', '; //cut off last comma and space
+        });
+        setTypeDisplay(typeList.slice(0, -2));
 
-      // display defense
-      defenseDisplay.textContent = `Defense: ${data.stats[2].base_stat}`;
+        // display HP
+        setHPDisplay(data.stats[0].base_stat);
+        // display attack
+        setAttackDisplay(data.stats[1].base_stat);
 
-      // display special attack
-      specialAttackDisplay.textContent = `Special Attack: ${data.stats[3].base_stat}`;
+        // display defense
+        setDefenseDisplay(data.stats[2].base_stat);
 
-      // display special defense
-      specialDefenseDisplay.textContent = `Special Defense: ${data.stats[4].base_stat}`;
+        // display special attack
+        setSpecialAttackDisplay(data.stats[3].base_stat);
 
-      // display speed
-      speedDisplay.textContent = `Speed: ${data.stats[5].base_stat}`;
+        // display special defense
+        setSpecialDefenseDisplay(data.stats[4].base_stat);
 
-      // display base XP
-      baseExperienceDisplay.textContent = `Base Experience: ${data.base_experience}`;
+        // display speed
+        setSpeedDisplay(data.stats[5].base_stat);
 
-      // display abilities
-      let abilityList = `Abilities: `
-      data.abilities.forEach(abilityObj => {
-        abilityList += capitalizeFirstLetter(abilityObj.ability.name) + ', ';
-        abilityDisplay.textContent = abilityList.slice(0, -2); // cut off last comma and space
-      });
+        // display base XP
+        setBaseExperienceDisplay(data.base_experience);
 
-      getEvolutionData(data.id)
-        .then(evoData => {
-          console.log(evoData);
-          //display evo data
-        })
+        // display abilities
+        let abilityList = '';
+        data.abilities.forEach(abilityObj => {
+          abilityList += capitalizeFirstLetter(abilityObj.ability.name) + ', ';
+        });
+        setAbilityDisplay(abilityList.slice(0, -2)); // cut off last comma and space
+
+        // getEvolutionData(data.id)
+        //   .then(evoData => {
+        //     // console.log(evoData);
+        //     //display evo data
+        //   })
+      }
     })
 }
 
@@ -118,27 +140,73 @@ function setTypeColors(data) {
     spriteDisplay.style.background = color1;
   }
 }
+function clearBackgroundColor() {
+  spriteDisplay.style.background = '';
+}
 
 async function getEvolutionData(id) {
   const response = await fetch(`https://pokeapi.co/api/v2/evolution-chain/${id}`);
   return await response.json();
 }
 
+function getLink() {
+  const link = window.location;
+  navigator.clipboard.writeText(link);
+  window.alert(`Copied Link:\n${link.toString()}`)
+}
+
+function setSpriteDisplay(src) {
+  spriteDisplay.src = '' + src;
+}
+function setNameDisplay(name) {
+  nameDisplay.textContent = 'Name: ' + name;
+  spriteDisplay.alt = name;
+  spriteDisplay.title = name;
+}
+function setTypeDisplay(types) {
+  typeDisplay.textContent = 'Type: ' + types;
+}
+function setHPDisplay(hp) {
+  hpDisplay.textContent = 'HP: ' + hp
+}
+function setAttackDisplay(attack) {
+  attackDisplay.textContent = 'Attack: ' + attack;
+}
+function setDefenseDisplay(defense) {
+  defenseDisplay.textContent = 'Defense: ' + defense;
+}
+function setSpecialAttackDisplay(specialAttack) {
+  specialAttackDisplay.textContent = 'Special Attack: ' + specialAttack;
+}
+function setSpecialDefenseDisplay(specialDefense) {
+  specialDefenseDisplay.textContent = 'Special Defense: ' + specialDefense;
+}
+function setSpeedDisplay(speed) {
+  speedDisplay.textContent = 'Speed: ' + speed;
+}
+function setBaseExperienceDisplay(baseExperience) {
+  baseExperienceDisplay.textContent = 'Base Experience: ' + baseExperience;
+}
+function setAbilityDisplay(abilities) {
+  abilityDisplay.textContent = 'Abilities: ' + abilities;
+}
+
 function clearInputField() {
   inputField.value = '';
 }
-
 function clearDisplayedData() {
-  spriteDisplay.src = ' ';
-  nameDisplay.textContent = 'Name: ';
-  typeDisplay.textContent = 'Type: ';
-  attackDisplay.textContent = 'Attack: ';
-  defenseDisplay.textContent = 'Defense: ';
-  specialAttackDisplay.textContent = 'Special Attack: ';
-  specialDefenseDisplay.textContent = 'Special Defense: ';
-  speedDisplay.textContent = 'Speed: ';
-  baseExperienceDisplay.textContent = 'Base Experience: ';
-  abilityDisplay.textContent = 'Abilities: ';
+  setSpriteDisplay('');
+  setNameDisplay('');
+  setTypeDisplay('');
+  setHPDisplay('')
+  setAttackDisplay('');
+  setDefenseDisplay('');
+  setSpecialAttackDisplay('');
+  setSpecialDefenseDisplay('');
+  setSpeedDisplay('');
+  setBaseExperienceDisplay('')
+  setAbilityDisplay('')
+  clearBackgroundColor();
 }
 
 function capitalizeFirstLetter(string) {
@@ -171,6 +239,11 @@ const TypeColors = {
   fairy: 'hsl(310, 35%, 75%)',
   normal: 'hsl(0, 0%, 65%)'
 };
+
+function randomPikachu() {
+  const pikachuArray = ['pikachu-rock-star', 'pikachu-pop-star', 'pikachu-belle', 'pikachu-phd', 'pikachu-libre', 'pikachu-cosplay', 'raichu', 'pichu'];
+  return pikachuArray[Math.floor(Math.random() * pikachuArray.length)];
+}
 
 //pokeapi cheat sheet
 
