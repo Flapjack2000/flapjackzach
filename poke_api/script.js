@@ -2,6 +2,7 @@
 // background colors on the pokemon's sprite that indicate their type
 // dropdown menu that lists all pokemon
 // display evolutions 
+
 const dropdown = document.getElementById('dropdown');
 const inputField = document.getElementById('inputField');
 const spriteDisplay = document.getElementById('spriteDisplay');
@@ -241,7 +242,23 @@ const TypeColors = {
 };
 
 function randomPikachu() {
-  const pikachuArray = ['pikachu-rock-star', 'pikachu-pop-star', 'pikachu-belle', 'pikachu-phd', 'pikachu-libre', 'pikachu-cosplay', 'raichu', 'pichu'];
+  const pikachuArray = [
+    'pikachu-rock-star',
+    'pikachu-pop-star',
+    'pikachu-belle',
+    'pikachu-phd',
+    'pikachu-libre',
+    'pikachu-cosplay',
+    'raichu',
+    'pichu',
+    'pikachu',
+    'pikachu',
+    'pikachu',
+    'pikachu',
+    'pikachu',
+    'pikachu',
+    'pikachu',
+    'pikachu'];
   return pikachuArray[Math.floor(Math.random() * pikachuArray.length)];
 }
 
