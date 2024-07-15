@@ -2,9 +2,24 @@
   text-align: center;
 }
 
+:root {
+  --black: #323232;
+  color: var(--black);
+}
+
+#backBtn {
+  font-family: 'Courier New', Courier, monospace;
+  text-align: left;
+  text-decoration: none;
+  color: var(--black);
+  margin: 0;
+  padding: 0;
+}
+
 #siteTitle {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-style: italic;
+  margin-top: 0;
 }
 
 button {
