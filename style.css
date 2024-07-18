@@ -1,8 +1,8 @@
 :root {
   --black: #333333;
-  --scrambl-red: hsl(0, 80%, 75%);
+  --scrambl-red: hsl(0, 85%, 75%);
   --fetch-yellow: hsl(50, 100%, 70%);
-  --huehub-green: hsl(145, 100%, 70%);
+  --huehub-green: hsl(130, 80%, 70%);
 
   --border: 2px solid var(--black);
 
@@ -58,7 +58,7 @@ a {
   font-size: 1.8rem;
   font-style: italic;
   padding: 3px;
-  text-decoration: underline;
+
 }
 
 .project-text {
@@ -66,7 +66,6 @@ a {
   margin: 3px;
   margin-left: 1.5rem;
   font-family: 'Courier New', Courier, monospace;
-
 }
 
 .project-wrapper {
@@ -82,18 +81,48 @@ a {
   padding: 6px;
   border: var(--border);
   max-width: 700px;
+}
 
+.scrambl {
+  .project-title {
+    text-decoration: var(--scrambl-red) underline wavy;
+  }
+}
+
+.fetch {
+  .project-title {
+    text-decoration: var(--fetch-yellow) underline wavy;
+  }
+}
+
+.huehub {
+  .project-title {
+    text-decoration: var(--huehub-green) underline wavy;
+  }
 }
 
 .scrambl:hover {
   background-color: var(--scrambl-red);
+
+  .project-title {
+    text-decoration: var(--black) underline wavy;
+  }
+
   padding: calc(- 20px);
 }
 
 .fetch:hover {
   background-color: var(--fetch-yellow);
+
+  .project-title {
+    text-decoration: var(--black) underline wavy;
+  }
 }
 
 .huehub:hover {
   background: var(--huehub-green);
+
+  .project-title {
+    text-decoration: var(--black) underline wavy;
+  }
 }
