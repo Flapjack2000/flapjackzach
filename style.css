@@ -85,18 +85,21 @@ a {
 
 .scrambl {
   .project-title {
+    text-decoration: var(--scrambl-red) underline;
     text-decoration: var(--scrambl-red) underline wavy;
   }
 }
 
 .fetch {
   .project-title {
+    text-decoration: var(--fetch-yellow) underline;
     text-decoration: var(--fetch-yellow) underline wavy;
   }
 }
 
 .huehub {
   .project-title {
+    text-decoration: var(--huehub-green) underline;
     text-decoration: var(--huehub-green) underline wavy;
   }
 }
