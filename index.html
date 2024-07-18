@@ -4,36 +4,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="#">
-  <title>flapjackzach | web developer | martial artist | musician | game master</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="#">
+  <title>home v2</title>
 </head>
 
 <body>
-  <h1 class="page-title">flapjackzach</h1>
-  <h3 class="page-subtitle">web developer | martial artist | musician | game master</h3>
+  <h1 id="title">flapjackzach</h1>
+  <p id="subtitle">web developer | martial artist | musician | game master</p>
 
-  <section class="section">
-    <h2 class="section-heading">PROJECTS</h2>
+  <div id="sections">
+    <section class="section">
+      <h3 class="section-heading">PROJECTS</h3>
+      <div class="project-wrapper">
 
-    <div class="card">
-      <a href="/scrambl" class="title">SCRAMBL</a>
-      <p class="text">Challenge your word unscrambling skills with this deceptively simple game!
-      </p>
-    </div>
-    <div class="card">
-      <a href="/poke_api" class="title">GOTTA FETCH 'EM ALL!</a>
-      <p class="text">Fetch information on all your favorite Pokémon from PokéAPI, a free open-source RESTful API!
-      </p>
-    </div>
-    <div class="card">
-      <a href="/huehub" class="title">THE HUE-HUB</a>
-      <p class="text">You just had a baby and you need to pick a color for the nursery - but your spouse won't agree
-        with Moutain Dew Green! Generate a color palette to help you decide!
-      </p>
-    </div>
-  </section>
+        <div class="scrambl project">
+          <a href="/scrambl">
+            <p class="project-title">
+              SCRAMBL
+            </p>
+            <p class="project-text">
+              Challenge your word unscrambling skills with this deceptively simple game!
+            </p>
+          </a>
+        </div>
 
+        <div class="fetch project">
+          <a href="/poke_api">
+            <p class="project-title">
+              GOTTA FETCH 'EM ALL!
+            </p>
+            <p class="project-text">
+              Fetch information on all your favorite Pokémon from PokéAPI, a free open-source RESTful API!
+            </p>
+          </a>
+        </div>
+
+        <div class="huehub project">
+          <a href="/huehub">
+            <p class="project-title">
+              THE HUE-HUB
+            </p>
+            <p class="project-text">
+              You just had a baby and you need to pick a color for the nursery - but your spouse won't agree with
+              Moutain Dew Green!
+              Generate a color palette to help you decide!
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
   <script src="script.js"></script>
 </body>
 
