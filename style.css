@@ -85,7 +85,6 @@ a {
 
 .scrambl {
   .project-title {
-    -webkit-text-decoration-line: text under line;
     text-decoration: var(--scrambl-red) underline wavy;
   }
 }
