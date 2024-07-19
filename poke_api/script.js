@@ -1,8 +1,3 @@
-// What's next:
-// background colors on the pokemon's sprite that indicate their type
-// dropdown menu that lists all pokemon
-// display evolutions 
-
 const dropdown = document.getElementById('dropdown');
 const inputField = document.getElementById('inputField');
 const spriteDisplay = document.getElementById('spriteDisplay');
@@ -16,8 +11,7 @@ const specialDefenseDisplay = document.getElementById('specialDefenseDisplay');
 const speedDisplay = document.getElementById('speedDisplay');
 const baseExperienceDisplay = document.getElementById('baseExperienceDisplay');
 const abilityDisplay = document.getElementById('abilityDisplay');
-const evolvedFromDisplay = document.getElementById('evolvedFromDisplay');
-const evolvesToDisplay = document.getElementById('evolvesToDisplay');
+const evolutionDisplay = document.getElementById('evolutionDisplay');
 
 // check for query in url
 document.addEventListener('DOMContentLoaded', () => {
@@ -121,11 +115,42 @@ function fetchPokemon(pokemon) {
         });
         setAbilityDisplay(abilityList.slice(0, -2)); // cut off last comma and space
 
-        // getEvolutionData(data.id)
-        //   .then(evoData => {
-        //     // console.log(evoData);
-        //     //display evo data
-        //   })
+
+        getEvolutionChain(data.name)
+          .then(evoChain => {
+            getEvolutionChainData(evoChain)
+              .then(evoData => {
+
+                let stage1 = capitalizeFirstLetter(evoData.chain.species.name);
+                let stage2 = [];
+                let stage3 = [];
+
+
+                // console.log(evoData.chain.species.name);
+
+                // console.log(evoData.chain.evolves_to[0].species.name);
+
+                evoData.chain.evolves_to.forEach(pokemon => {
+                  stage2.push(capitalizeFirstLetter(pokemon.species.name));
+
+                  pokemon.evolves_to.forEach(pokemon => {
+                    stage3.push(capitalizeFirstLetter(pokemon.species.name))
+                  })
+                })
+                // console.log(evoData.chain.evolves_to[0].evolves_to[0].species.name);
+
+
+                console.log(stage1);
+                console.log(stage2.join(', '));
+                console.log(stage3.join(', '));
+
+                setEvolutionDisplay(stage1, stage2.join(', '), stage3.join(', '));
+                // works for classic evo chains with 3 pokemon, but not special circumstances with more or less evolutions
+                // use forEach loops to log all evolutionsv
+
+              })
+
+          })
       }
     })
 }
@@ -145,10 +170,18 @@ function clearBackgroundColor() {
   spriteDisplay.style.background = '';
 }
 
-async function getEvolutionData(id) {
-  const response = await fetch(`https://pokeapi.co/api/v2/evolution-chain/${id}`);
-  return await response.json();
+async function getEvolutionChain(pokemon) {
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon}`);
+  const evoData = await response.json();
+
+  return evoData.evolution_chain.url;
 }
+async function getEvolutionChainData(evoChain) {
+  const response = await fetch(evoChain);
+  const evoData = await response.json();
+  return evoData;
+}
+
 
 function getLink() {
   const link = window.location;
@@ -191,6 +224,11 @@ function setBaseExperienceDisplay(baseExperience) {
 function setAbilityDisplay(abilities) {
   abilityDisplay.textContent = 'Abilities: ' + abilities;
 }
+function setEvolutionDisplay(stage1, stage2, stage3) {
+  evolutionDisplay.textContent = 'Evolution Chain: ' + stage1;
+  if (stage2) evolutionDisplay.textContent += ' → ' + stage2;
+  if (stage3) evolutionDisplay.textContent += ' → ' + stage3;
+}
 
 function clearInputField() {
   inputField.value = '';
@@ -207,6 +245,7 @@ function clearDisplayedData() {
   setSpeedDisplay('');
   setBaseExperienceDisplay('')
   setAbilityDisplay('')
+  setEvolutionDisplay('');
   clearBackgroundColor();
 }
 
