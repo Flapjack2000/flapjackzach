@@ -3,6 +3,7 @@
   --scrambl-red: hsl(0, 85%, 75%);
   --fetch-yellow: hsl(50, 100%, 70%);
   --huehub-green: hsl(130, 80%, 70%);
+  --coming-soon-gray: hsl(0, 0%, 70%);
 
   --border: 2px solid var(--black);
 
@@ -85,19 +86,29 @@ a {
 
 .scrambl {
   .project-title {
+    display: inline;
     text-decoration: var(--scrambl-red) underline wavy;
   }
 }
 
 .fetch {
   .project-title {
+    display: inline;
     text-decoration: var(--fetch-yellow) underline wavy;
   }
 }
 
 .huehub {
   .project-title {
+    display: inline;
     text-decoration: var(--huehub-green) underline wavy;
+  }
+}
+
+.coming-soon {
+  .project-title {
+    display: inline;
+    text-decoration: var(--coming-soon-gray) underline wavy;
   }
 }
 
@@ -121,6 +132,14 @@ a {
 
 .huehub:hover {
   background: var(--huehub-green);
+
+  .project-title {
+    text-decoration: var(--black) underline wavy;
+  }
+}
+
+.coming-soon:hover {
+  background: var(--coming-soon-gray);
 
   .project-title {
     text-decoration: var(--black) underline wavy;
