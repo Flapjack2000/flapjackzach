@@ -3,7 +3,7 @@
   --scrambl-red: hsl(0, 85%, 75%);
   --fetch-yellow: hsl(50, 100%, 70%);
   --huehub-green: hsl(130, 80%, 70%);
-  --coming-soon-gray: hsl(0, 0%, 70%);
+  --dnd-blue: hsl(205, 100%, 80%);
 
   --border: 2px solid var(--black);
 
@@ -138,8 +138,8 @@ a {
   }
 }
 
-.coming-soon:hover {
-  background: var(--coming-soon-gray);
+.dnd:hover {
+  background: var(--dnd-blue);
 
   .project-title {
     text-decoration: var(--black) underline wavy;
