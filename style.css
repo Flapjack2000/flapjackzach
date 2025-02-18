@@ -105,7 +105,7 @@ a {
   }
 }
 
-.coming-soon {
+.dnd {
   .project-title {
     display: inline;
     text-decoration: var(--coming-soon-gray) underline wavy;
